@@ -4,6 +4,7 @@ import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
 import { editorStateAtom } from "../../atoms/editor.atom";
 import cloneDeep from "lodash.clonedeep";
+import useUpdateBlockProps from "../../hooks/useUpdateBlockProps";
 
 export interface CustomTitleProps {
   content?: string;
@@ -11,16 +12,10 @@ export interface CustomTitleProps {
 }
 
 export const CustomTitle: React.FC<BlockComponentProps> = ({ blockId }) => {
-  const [block, setBlock] = useRecoilState(editorStateAtom);
-  const currentBlock = block[blockId];
+  const [block] = useRecoilState(editorStateAtom);
+  const [updateEditorProps] = useUpdateBlockProps();
   const { props } = block[blockId];
   const { content = "", order = 1 } = props as CustomTitleProps;
-
-  const handleBlockChange = (key: string, value: string) => {
-    const newBlock = cloneDeep(currentBlock);
-    newBlock.props[key] = value;
-    setBlock({ ...block, [blockId]: newBlock });
-  };
 
   return (
     <Title
@@ -28,7 +23,11 @@ export const CustomTitle: React.FC<BlockComponentProps> = ({ blockId }) => {
       suppressContentEditableWarning={true}
       order={order}
       onBlur={(e: React.FormEvent<HTMLDivElement>) =>
-        handleBlockChange("content", e?.currentTarget?.innerText)
+        updateEditorProps({
+          blockId,
+          propName: "content",
+          value: e?.currentTarget?.innerText,
+        })
       }
     >
       {content}
@@ -46,33 +45,3 @@ export const Heading2: React.FC<BlockComponentProps> = ({ blockId }) => {
 export const Heading3: React.FC<BlockComponentProps> = ({ blockId }) => {
   return <CustomTitle blockId={blockId} />;
 };
-
-// export const Heading2: React.FC<BlockComponentProps> = ({ blockId }) => {
-//   const [block, setBlock] = useRecoilState(editorStateAtom);
-//   const { props } = block[blockId];
-//   const { content = "" } = props as CustomTitleProps;
-//   return (
-//     <Title
-//       contentEditable="true"
-//       suppressContentEditableWarning={true}
-//       order={2}
-//     >
-//       {content}
-//     </Title>
-//   );
-// };
-
-// export const Heading3: React.FC<BlockComponentProps> = ({ blockId }) => {
-//   const [block, setBlock] = useRecoilState(editorStateAtom);
-//   const { props } = block[blockId];
-//   const { content = "" } = props as CustomTitleProps;
-//   return (
-//     <Title
-//       contentEditable="true"
-//       suppressContentEditableWarning={true}
-//       order={3}
-//     >
-//       {content}
-//     </Title>
-//   );
-// };

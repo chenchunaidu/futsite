@@ -24,7 +24,21 @@ export const SampleEditorState: Block = {
   root: {
     id: nanoid(),
     blockName: "Row",
-    children: ["comp-123", "comp-124", "comp-125", "comp-126"],
+    children: [
+      "comp-col-1",
+      "comp-123",
+      "comp-124",
+      "comp-125",
+      "comp-126",
+      "comp-127",
+      "comp-128",
+    ],
+    props: {},
+  },
+  "comp-col-1": {
+    id: nanoid(),
+    blockName: "Column",
+    children: ["comp-123", "comp-124"],
     props: {},
   },
   "comp-123": {
@@ -51,5 +65,24 @@ export const SampleEditorState: Block = {
     blockName: "Heading 1",
     children: [],
     props: { content: "Something 3", order: 3 },
+  },
+  "comp-127": {
+    id: nanoid(),
+    blockName: "List",
+    children: [],
+    props: {
+      listItems: [
+        { id: nanoid(), data: "Item 1" },
+        { id: nanoid(), data: "Item 2" },
+      ],
+    },
+  },
+  "comp-128": {
+    id: nanoid(),
+    blockName: "Button",
+    children: [],
+    props: {
+      label: "Button",
+    },
   },
 };

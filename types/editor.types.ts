@@ -13,6 +13,11 @@ export interface BlockItem {
   selected?: boolean;
 }
 
+export interface ListItem {
+  id: string;
+  data: string;
+}
+
 export type HandleEditorStateChange = () => void;
 
 export type HandleSetSelectedBlock = (block: Block) => void;
