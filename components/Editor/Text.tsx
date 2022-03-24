@@ -27,6 +27,7 @@ const CustomText: React.FC<BlockComponentProps> = ({ blockId }) => {
           value: e?.currentTarget?.innerText,
         })
       }
+      {...props}
     >
       {content}
     </Text>

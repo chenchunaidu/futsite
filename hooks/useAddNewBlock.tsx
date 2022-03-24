@@ -13,7 +13,10 @@ export default function useAddNewBlock() {
   const [editorState, setEditorState] = useRecoilState(editorStateAtom);
   const [selectedBlockId] = useRecoilState(selectedBlockIdAtom);
   function addNewBlock({ blockName }: AddNewBlockInput) {
-    const { mainBlockId, newBlocks } = getDefaultBlockData(blockName);
+    const { mainBlockId, newBlocks } = getDefaultBlockData(
+      blockName,
+      selectedBlockId || "root"
+    );
 
     setEditorState(
       produce(editorState, (draft) => {

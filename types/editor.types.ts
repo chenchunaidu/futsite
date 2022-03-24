@@ -1,4 +1,7 @@
-import { blockNameComponentMapping } from "../components/Editor/data";
+import {
+  blockNameComponentMapping,
+  inputComponentMapping,
+} from "../components/Editor/data";
 
 export interface BlockComponentProps {
   blockId: string;
@@ -12,7 +15,7 @@ export interface BlockItem {
   blockName: BlockNames;
   props: Record<string, unknown>;
   children: string[];
-  selected?: boolean;
+  parentId: string;
 }
 
 export interface ListItem {
@@ -23,3 +26,11 @@ export interface ListItem {
 export type HandleEditorStateChange = () => void;
 
 export type HandleSetSelectedBlock = (block: Block) => void;
+
+export type InputComponentNames = keyof typeof inputComponentMapping;
+
+export interface PropInput {
+  label: string;
+  name: string;
+  component: InputComponentNames;
+}

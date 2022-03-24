@@ -34,6 +34,7 @@ const CustomButton: React.FC<BlockComponentProps> = ({ blockId }) => {
         })
       }
       onKeyDown={handleSpaceEnter}
+      {...props}
     >
       {label}
     </Button>

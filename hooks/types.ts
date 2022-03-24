@@ -6,5 +6,6 @@ interface GetDefaultBlockDataOutput {
 }
 
 export type GetDefaultBlockData = (
-  input: BlockNames
+  input: BlockNames,
+  selectedBlockId: string
 ) => GetDefaultBlockDataOutput;

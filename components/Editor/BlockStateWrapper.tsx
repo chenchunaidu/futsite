@@ -1,12 +1,10 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { Box } from "@mantine/core";
 import {
   editorStateAtom,
   hoveredBlockIdAtom,
   selectedBlockIdAtom,
 } from "../../atoms/editor.atom";
-import { blockNameComponentMapping } from "./data";
 import BlockWrapper from "./BlockWrapper";
 
 interface BlockStateWrapperProps {
