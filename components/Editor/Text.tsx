@@ -1,9 +1,8 @@
 import React from "react";
-import { Text, TextInput } from "@mantine/core";
+import { Text } from "@mantine/core";
 import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
 import { editorStateAtom } from "../../atoms/editor.atom";
-import cloneDeep from "lodash.clonedeep";
 import useUpdateBlockProps from "../../hooks/useUpdateBlockProps";
 
 export interface CustomTextProps {

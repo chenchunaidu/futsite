@@ -5,9 +5,11 @@ export interface BlockComponentProps {
 }
 
 export type Block = Record<string, BlockItem>;
+
+export type BlockNames = keyof typeof blockNameComponentMapping;
 export interface BlockItem {
   id: string;
-  blockName: keyof typeof blockNameComponentMapping;
+  blockName: BlockNames;
   props: Record<string, unknown>;
   children: string[];
   selected?: boolean;

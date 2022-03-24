@@ -12,3 +12,15 @@ export const editorStateAtom = atom<Block>({
   default: SampleEditorState,
   effects: [persistAtom],
 });
+
+export const selectedBlockIdAtom = atom<string | null>({
+  key: "selectedBlockId",
+  default: null,
+  effects: [persistAtom],
+});
+
+export const hoveredBlockIdAtom = atom<string | null>({
+  key: "hoveredBlockId",
+  default: null,
+  effects: [persistAtom],
+});
