@@ -1,23 +1,25 @@
 import React from "react";
-import { useRecoilState } from "recoil";
 import { Box } from "@mantine/core";
-import {
-  editorStateAtom,
-  hoveredBlockIdAtom,
-  selectedBlockIdAtom,
-} from "../../atoms/editor.atom";
 import { blockNameComponentMapping } from "./data";
+import { Block } from "../../types/editor.types";
 
 interface BlockWrapperProps {
   blockId: string;
+  block: Block;
+  selectedBlockId: string | null;
+  hoveredBlockId: string | null;
+  setSelectedBlockId: (input: string | null) => void;
+  setHoveredBlockId: (input: string | null) => void;
 }
 
-const BlockWrapper: React.FC<BlockWrapperProps> = ({ blockId }) => {
-  const [block] = useRecoilState(editorStateAtom);
-  const [selectedBlockId, setSelectedBlockId] =
-    useRecoilState(selectedBlockIdAtom);
-  const [hoveredBlockId, setHoveredBlockId] =
-    useRecoilState(hoveredBlockIdAtom);
+const BlockWrapper: React.FC<BlockWrapperProps> = ({
+  blockId,
+  block,
+  selectedBlockId,
+  hoveredBlockId,
+  setSelectedBlockId,
+  setHoveredBlockId,
+}) => {
   if (block[blockId]) {
     const { blockName } = block[blockId];
 

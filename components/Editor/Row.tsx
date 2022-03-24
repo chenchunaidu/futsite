@@ -3,7 +3,7 @@ import React from "react";
 import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
 import { editorStateAtom } from "../../atoms/editor.atom";
-import BlockWrapper from "./BlockWrapper";
+import BlockStateWrapper from "./BlockStateWrapper";
 export interface RowProps {
   children?: React.ReactNode;
 }
@@ -15,7 +15,7 @@ const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
   return (
     <Group direction="column" spacing={0} grow p="md">
       {children.map((child) => (
-        <BlockWrapper blockId={child} key={child} />
+        <BlockStateWrapper blockId={child} key={child} />
       ))}
     </Group>
   );
