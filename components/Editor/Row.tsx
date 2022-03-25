@@ -13,7 +13,14 @@ const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
   const currentBlock = block[blockId];
   const { children } = currentBlock;
   return (
-    <Group direction="column" spacing={0} grow p="md">
+    <Group
+      direction="column"
+      spacing={0}
+      grow
+      p="md"
+      // align="center"
+      // sx={{ height: "100%", justifyContent: "center" }}
+    >
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />
       ))}

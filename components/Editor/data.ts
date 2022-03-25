@@ -32,7 +32,7 @@ export const blockNameComponentMapping = {
   },
   Image: {
     component: CustomImage,
-    props: {},
+    props: { width: "100px", height: "100px" },
   },
   Button: { component: CustomButton, children: [], props: { label: "Submit" } },
   List: {
