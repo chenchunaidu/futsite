@@ -28,6 +28,7 @@
     "react-split-pane": "^0.1.92",
     "recoil": "^0.6.1",
     "recoil-persist": "^4.0.0",
+    "recoil-undo": "0.0.7",
     "tabler-icons-react": "^1.37.0"
   },
   "devDependencies": {

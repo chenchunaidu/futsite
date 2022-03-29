@@ -1,11 +1,14 @@
-import { Alert, Button, Text } from "@mantine/core";
+import { Button } from "@mantine/core";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { editorStateAtom, selectedBlockIdAtom } from "../../atoms/editor.atom";
 import useUpdateBlockProps from "../../hooks/useUpdateBlockProps";
-import { blockNameInputComponentMapping, inputComponentMapping } from "./data";
+import {
+  blockNameInputComponentMapping,
+  defaultInputs,
+  inputComponentMapping,
+} from "./data";
 import { IoMdSwap } from "react-icons/io";
-import { AlertCircle } from "tabler-icons-react";
 
 const PropsInputWrapper = () => {
   const [updateEditorProps, swapBlocks] = useUpdateBlockProps();
@@ -16,7 +19,9 @@ const PropsInputWrapper = () => {
 
   if (selectedBlockId?.length === 1) {
     const selectedBlock = blocks[selectedBlockId[0]];
-    const inputs = blockNameInputComponentMapping[selectedBlock?.blockName];
+    let inputs = blockNameInputComponentMapping[selectedBlock?.blockName];
+
+    inputs = [...defaultInputs, ...inputs];
     const blockId = selectedBlock?.id;
     return (
       <>
@@ -25,11 +30,13 @@ const PropsInputWrapper = () => {
           if (!Component) {
             return null;
           }
+
           return (
             <Component
               value={selectedBlock?.props[name] as string}
               name={name}
               label={label}
+              data={[]}
               onChange={(e) => {
                 updateEditorProps({
                   blockId: blockId,
@@ -47,8 +54,6 @@ const PropsInputWrapper = () => {
 
   if (selectedBlockId?.length === 2) {
     const [blockId1, blockId2] = selectedBlockId;
-    // const block1Parent = blocks[blockId1].parentId;
-    // const block2Parent = blocks[blockId2].parentId;
 
     return (
       <Button

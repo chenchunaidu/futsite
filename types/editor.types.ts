@@ -33,4 +33,5 @@ export interface PropInput {
   label: string;
   name: string;
   component: InputComponentNames;
+  defaultValue?: string | number;
 }

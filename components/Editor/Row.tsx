@@ -11,16 +11,9 @@ export interface RowProps {
 const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
   const [block] = useRecoilState(editorStateAtom);
   const currentBlock = block[blockId];
-  const { children } = currentBlock;
+  const { children, props } = currentBlock;
   return (
-    <Group
-      direction="column"
-      spacing={0}
-      grow
-      p="md"
-      // align="center"
-      // sx={{ height: "100%", justifyContent: "center" }}
-    >
+    <Group direction="column" spacing={0} grow p="md" {...props}>
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />
       ))}

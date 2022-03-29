@@ -1,3 +1,4 @@
+import { Select } from "@mantine/core";
 import { nanoid } from "nanoid";
 import { Block, BlockNames, PropInput } from "../../types/editor.types";
 import CustomButton from "./Button";
@@ -60,13 +61,18 @@ export const inputComponentMapping = {
   // text: CustomTextInput,
   text: CustomTextInput,
   // number: NumberInput,
-  // select: Select,
+  select: Select,
   // switch: Switch,
   color: ColorControl,
   // textarea: Textarea,
 };
 
 type BlockNameInputComponentMapping = Record<BlockNames, PropInput[]>;
+
+export const defaultInputs: PropInput[] = [
+  { label: "Margin", name: "m", component: "text" },
+  { label: "Padding", name: "p", component: "text" },
+];
 
 export const blockNameInputComponentMapping: BlockNameInputComponentMapping = {
   Button: [
@@ -93,5 +99,5 @@ export const blockNameInputComponentMapping: BlockNameInputComponentMapping = {
   "Heading 2": [{ label: "Align", name: "align", component: "text" }],
   "Heading 3": [{ label: "Align", name: "align", component: "text" }],
   List: [],
-  Rows: [],
+  Rows: [{ label: "Align", name: "align", component: "text" }],
 };
