@@ -13,9 +13,9 @@ export const editorStateAtom = atom<Block>({
   effects: [persistAtom],
 });
 
-export const selectedBlockIdAtom = atom<string | null>({
+export const selectedBlockIdAtom = atom<string[]>({
   key: "selectedBlockId",
-  default: null,
+  default: [],
   effects: [persistAtom],
 });
 

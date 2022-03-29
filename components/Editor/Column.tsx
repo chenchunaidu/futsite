@@ -14,7 +14,7 @@ const Column: React.FC<BlockComponentProps> = ({ blockId }) => {
   const { children } = currentBlock;
 
   return (
-    <SimpleGrid cols={children.length} py="md">
+    <SimpleGrid cols={children.length} py="md" key={blockId}>
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />
       ))}

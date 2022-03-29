@@ -15,12 +15,12 @@ export default function useAddNewBlock() {
   function addNewBlock({ blockName }: AddNewBlockInput) {
     const { mainBlockId, newBlocks } = getDefaultBlockData(
       blockName,
-      selectedBlockId || "root"
+      selectedBlockId[0] || "root"
     );
 
     setEditorState(
       produce(editorState, (draft) => {
-        draft[selectedBlockId || "root"].children.push(mainBlockId);
+        draft[selectedBlockId[0] || "root"].children.push(mainBlockId);
         newBlocks.map((newBlock) => {
           draft[newBlock.id] = newBlock;
         });

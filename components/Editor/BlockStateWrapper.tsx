@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useRecoilState } from "recoil";
 import {
   editorStateAtom,
@@ -29,4 +29,4 @@ const BlockStateWrapper: React.FC<BlockStateWrapperProps> = ({ blockId }) => {
   );
 };
 
-export default BlockStateWrapper;
+export default memo(BlockStateWrapper);
