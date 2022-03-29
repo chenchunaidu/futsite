@@ -22,5 +22,4 @@ export const selectedBlockIdAtom = atom<string[]>({
 export const hoveredBlockIdAtom = atom<string | null>({
   key: "hoveredBlockId",
   default: null,
-  effects: [persistAtom],
 });

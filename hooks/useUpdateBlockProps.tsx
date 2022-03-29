@@ -32,7 +32,7 @@ export default function useUpdateBlockProps() {
   function swapBlocks({ blockId1, blockId2 }: SwapBlocks) {
     const block1ParentId = editorState[blockId1].parentId;
     const block2ParentId = editorState[blockId2].parentId;
-    // change parent id in child
+
     setEditorState(
       produce(editorState, (draft) => {
         const blockIndex1 = draft[block1ParentId].children.findIndex(
