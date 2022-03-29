@@ -1,8 +1,6 @@
-import {
-  blockNameComponentMapping,
-  inputComponentMapping,
-} from "../components/Editor/data";
-
+import { SelectItem } from "@mantine/core";
+import { blockNameComponentMapping } from "../components/Editor/data";
+import { inputComponentMapping } from "../components/Editor/BlockNameInputMapping";
 export interface BlockComponentProps {
   blockId: string;
 }
@@ -33,5 +31,5 @@ export interface PropInput {
   label: string;
   name: string;
   component: InputComponentNames;
-  defaultValue?: string | number;
+  options?: string[] | SelectItem[];
 }

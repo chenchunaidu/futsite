@@ -5,9 +5,9 @@ import { editorStateAtom, selectedBlockIdAtom } from "../../atoms/editor.atom";
 import useUpdateBlockProps from "../../hooks/useUpdateBlockProps";
 import {
   blockNameInputComponentMapping,
-  defaultInputs,
   inputComponentMapping,
-} from "./data";
+} from "./BlockNameInputMapping";
+import { defaultInputs } from "./BlockNameInputMapping/defaultInput";
 import { IoMdSwap } from "react-icons/io";
 
 const PropsInputWrapper = () => {
@@ -25,7 +25,7 @@ const PropsInputWrapper = () => {
     const blockId = selectedBlock?.id;
     return (
       <>
-        {inputs?.map(({ label, name, component }, index) => {
+        {inputs?.map(({ label, name, component, options = [] }, index) => {
           const Component = inputComponentMapping[component];
           if (!Component) {
             return null;
@@ -36,7 +36,7 @@ const PropsInputWrapper = () => {
               value={selectedBlock?.props[name] as string}
               name={name}
               label={label}
-              data={[]}
+              data={options}
               onChange={(e) => {
                 updateEditorProps({
                   blockId: blockId,
