@@ -25,6 +25,7 @@ export function ColorControl({
     "white",
     ...Object.keys(theme.colors).map((color) => theme.colors[color][5]),
   ];
+
   const colors = colorNames.map((color) => (
     <ColorSwatch
       color={color}

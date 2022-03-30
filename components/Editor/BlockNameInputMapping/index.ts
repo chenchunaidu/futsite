@@ -1,4 +1,4 @@
-import { Select, SelectItem } from "@mantine/core";
+import { Select } from "@mantine/core";
 import { BlockNames, PropInput } from "../../../types/editor.types";
 
 import { ColorControl } from "../CustomColorSwatch";
@@ -10,13 +10,9 @@ import { TransformSelect } from "./transformSelect";
 import { FontWeightSelect } from "./weightSelect";
 
 export const inputComponentMapping = {
-  // text: CustomTextInput,
   text: CustomTextInput,
-  // number: NumberInput,
   select: Select,
-  // switch: Switch,
   color: ColorControl,
-  // textarea: Textarea,
 };
 
 type BlockNameInputComponentMapping = Record<BlockNames, PropInput[]>;
