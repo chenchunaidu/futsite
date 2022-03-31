@@ -1,4 +1,4 @@
-import { Group } from "@mantine/core";
+import { CSSObject, Group, useMantineTheme } from "@mantine/core";
 import React from "react";
 import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
@@ -10,10 +10,20 @@ export interface RowProps {
 
 const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
   const [block] = useRecoilState(editorStateAtom);
+  const theme = useMantineTheme();
   const currentBlock = block[blockId];
   const { children, props } = currentBlock;
+  const { background = theme.colors.gray[1] } = props;
+
   return (
-    <Group direction="column" spacing={0} grow p="md" {...props}>
+    <Group
+      direction="column"
+      spacing={0}
+      grow
+      p="md"
+      {...props}
+      sx={{ background: background as string }}
+    >
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />
       ))}

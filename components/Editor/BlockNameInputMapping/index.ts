@@ -26,7 +26,9 @@ export const blockNameInputComponentMapping: BlockNameInputComponentMapping = {
     TransformSelect,
     FontWeightSelect,
   ],
-  Columns: [],
+  Columns: [
+    { label: "Background Color", name: "background", component: "color" },
+  ],
   Image: [
     { label: "Image url", name: "src", component: "text" },
     { label: "Alt", name: "alt", component: "text" },
@@ -39,5 +41,8 @@ export const blockNameInputComponentMapping: BlockNameInputComponentMapping = {
   Heading2: [{ label: "Align", name: "align", component: "text" }],
   Heading3: [{ label: "Align", name: "align", component: "text" }],
   List: [],
-  Rows: [{ label: "Align", name: "align", component: "text" }],
+  Rows: [
+    { label: "Align", name: "align", component: "text" },
+    { label: "Background Color", name: "background", component: "color" },
+  ],
 };
