@@ -35,9 +35,9 @@ export const blockNameInputComponentMapping: BlockNameInputComponentMapping = {
     { label: "Width", name: "width", component: "text" },
     { label: "Height", name: "height", component: "text" },
   ],
-  "Heading 1": [{ label: "Align", name: "align", component: "text" }],
-  "Heading 2": [{ label: "Align", name: "align", component: "text" }],
-  "Heading 3": [{ label: "Align", name: "align", component: "text" }],
+  Heading1: [{ label: "Align", name: "align", component: "text" }],
+  Heading2: [{ label: "Align", name: "align", component: "text" }],
+  Heading3: [{ label: "Align", name: "align", component: "text" }],
   List: [],
   Rows: [{ label: "Align", name: "align", component: "text" }],
 };

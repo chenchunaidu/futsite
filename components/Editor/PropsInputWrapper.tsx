@@ -19,7 +19,7 @@ const PropsInputWrapper = () => {
 
   if (selectedBlockId?.length === 1) {
     const selectedBlock = blocks[selectedBlockId[0]];
-    let inputs = blockNameInputComponentMapping[selectedBlock?.blockName];
+    let inputs = blockNameInputComponentMapping[selectedBlock?.blockName] || [];
 
     inputs = [...defaultInputs, ...inputs];
     const blockId = selectedBlock?.id;
