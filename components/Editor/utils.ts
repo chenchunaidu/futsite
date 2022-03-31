@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { Block } from "../../types/editor.types";
-import { html as beautifyHTML } from "js-beautify";
 
 interface GetPropsInput {
   [x: string]: string;
@@ -12,9 +9,34 @@ const getProps: GetProps = (input) => {
   const keys = Object.keys(input);
   let props = "";
   keys.forEach((key) => {
-    props += ` ${key} = {"${input[key]}"}`;
+    const propValue = input[key];
+
+    if (typeof propValue === "string" && propValue !== "")
+      props += ` ${key} = {"${input[key]?.replace(/"/g, "'")}"}`;
+    else if (typeof propValue === "number")
+      props += ` ${key} = {${input[key]}}`;
   });
   return props;
+};
+
+export const formatCode = async (code: string) => {
+  let formattedCode = code;
+
+  const prettier = await import("prettier/standalone");
+  const babylonParser = await import("prettier/parser-babel");
+
+  try {
+    formattedCode = prettier.format(code, {
+      parser: "babel",
+      plugins: [babylonParser],
+      semi: false,
+      singleQuote: true,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+
+  return formattedCode;
 };
 
 export function getCode(blocks: Block) {
@@ -36,9 +58,10 @@ export function getCode(blocks: Block) {
 
   export default function Component(){
     return(
-      ${beautifyHTML(code)}
+      ${code}
     )
   }
  `;
-  return code;
+
+  return formatCode(code);
 }
