@@ -22,7 +22,7 @@ const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
       grow
       p="md"
       {...props}
-      sx={{ background: background as string }}
+      sx={{ background: background as string, height: "100%" }}
     >
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />
