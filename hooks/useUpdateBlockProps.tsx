@@ -7,7 +7,7 @@ import { Block } from "../types/editor.types";
 interface UpdateEditorPropsInput {
   blockId: string;
   propName: string;
-  value: string | null;
+  value: string | number | null;
 }
 
 interface SwapBlocks {

@@ -21,6 +21,7 @@ const Column: React.FC<BlockComponentProps> = ({ blockId }) => {
       py="md"
       key={blockId}
       sx={{ background: background as string }}
+      {...props}
     >
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />

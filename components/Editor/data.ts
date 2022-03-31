@@ -10,11 +10,11 @@ import CustomText from "./Text";
 import { Heading1, Heading2, Heading3 } from "./Title";
 
 export const blockNameComponentMapping = {
-  Rows: { component: Row, props: {} },
+  Rows: { component: Row, props: { p: "md" } },
   Text: { component: CustomText, props: { content: "Text" } },
   Columns: {
     component: Column,
-    props: {},
+    props: { p: "md" },
   },
   Heading1: {
     component: Heading1,
@@ -49,7 +49,7 @@ export const SampleEditorState: Block = {
     id: "root",
     blockName: "Rows",
     children: [],
-    props: {},
+    props: { p: "md" },
     parentId: "",
   },
 };

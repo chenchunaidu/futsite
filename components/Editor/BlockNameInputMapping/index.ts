@@ -1,8 +1,8 @@
 import { Select } from "@mantine/core";
 import { BlockNames, PropInput } from "../../../types/editor.types";
 
-import { ColorControl } from "../CustomColorSwatch";
-import CustomTextInput from "../CustomTextInput";
+import { ColorControl } from "./CustomColorSwatch";
+import CustomTextInput from "./CustomTextInput";
 import { AlignSelect } from "./alignSelect";
 import { ImageFitSelect } from "./imageFitSelect";
 import { SizeSelect } from "./sizeSelect";

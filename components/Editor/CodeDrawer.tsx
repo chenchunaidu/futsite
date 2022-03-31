@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Drawer, Button, Group, Modal } from "@mantine/core";
+import { Button, Group, Modal } from "@mantine/core";
 import CodeContainer from "./CodeContainer";
 
 export default function CodeDrawer() {

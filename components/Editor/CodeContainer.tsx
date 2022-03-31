@@ -22,7 +22,6 @@ export default function CodeContainer() {
   return (
     <Prism colorScheme="dark" language="jsx" trim={false}>
       {code}
-      {/* {getCode(blocks)} */}
     </Prism>
   );
 }
