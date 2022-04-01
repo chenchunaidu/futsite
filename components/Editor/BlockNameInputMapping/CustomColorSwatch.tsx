@@ -9,13 +9,12 @@ interface ColorControlProps {
 
 const allColors = [
   ...Object.values(DEFAULT_THEME.colors).map((color) => color[5]),
-  "None",
 ];
 
 export function ColorControl({ value, onChange }: ColorControlProps) {
   return (
     <ColorPicker
-      format="hex"
+      format="hsla"
       value={value}
       onChange={onChange}
       swatches={allColors}
