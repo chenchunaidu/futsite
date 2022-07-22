@@ -10,10 +10,10 @@ export interface RowProps {
 
 const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
   const [block] = useRecoilState(editorStateAtom);
-  const theme = useMantineTheme();
+
   const currentBlock = block[blockId];
   const { children, props } = currentBlock;
-  const { background = theme.colors.gray[1] } = props;
+  const { background } = props;
 
   return (
     <Group

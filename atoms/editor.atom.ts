@@ -23,3 +23,8 @@ export const hoveredBlockIdAtom = atom<string | null>({
   key: "hoveredBlockId",
   default: null,
 });
+
+export const outlineAtom = atom<boolean>({
+  key: "outline",
+  default: true,
+});

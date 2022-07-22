@@ -9,11 +9,10 @@ export interface ColumnProps {
 }
 
 const Column: React.FC<BlockComponentProps> = ({ blockId }) => {
-  const theme = useMantineTheme();
   const [block] = useRecoilState(editorStateAtom);
   const currentBlock = block[blockId];
   const { children, props } = currentBlock;
-  const { background = theme.colors.gray[1] } = props;
+  const { background } = props;
 
   return (
     <SimpleGrid

@@ -2,6 +2,8 @@ import React, { memo } from "react";
 import { Box, Text, Button } from "@mantine/core";
 import { blockNameComponentMapping } from "./data";
 import { Block } from "../../types/editor.types";
+import { useRecoilValue } from "recoil";
+import { outlineAtom } from "../../atoms/editor.atom";
 
 interface BlockWrapperProps {
   blockId: string;
@@ -20,6 +22,7 @@ const BlockWrapper: React.FC<BlockWrapperProps> = ({
   setSelectedBlockId,
   setHoveredBlockId,
 }) => {
+  const showOutline = useRecoilValue(outlineAtom);
   const handleBlockSelected = (e: React.MouseEvent<HTMLDivElement>) => {
     if (selectedBlockId?.includes(blockId)) {
       setSelectedBlockId(selectedBlockId.filter((id) => blockId !== id));
@@ -40,7 +43,11 @@ const BlockWrapper: React.FC<BlockWrapperProps> = ({
     const isBlockSelected = selectedBlockId?.includes(blockId);
     const isBlockHovered = hoveredBlockId === blockId;
     const boxStyles = {
-      border: isBlockSelected ? "1px dashed gray" : "none",
+      border: isBlockSelected
+        ? "1px dashed Violet"
+        : showOutline
+        ? "0.2px dashed gray"
+        : "none",
       outline: !isBlockSelected && isBlockHovered ? "Violet solid 2px" : "none",
       position: (isBlockSelected || isBlockHovered
         ? "relative"
