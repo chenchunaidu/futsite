@@ -47,7 +47,7 @@ export const blockNameComponentMapping = {
 export const SampleEditorState: Block = {
   root: {
     id: "root",
-    blockName: "Rows",
+    blockName: "Columns",
     children: [],
     props: { p: "md" },
     parentId: "",

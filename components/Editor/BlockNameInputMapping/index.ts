@@ -27,6 +27,8 @@ export const blockNameInputComponentMapping: BlockNameInputComponentMapping = {
     FontWeightSelect,
   ],
   Columns: [
+    { label: "Justify", name: "justifyContent", component: "text" },
+    { label: "Align items", name: "alignItems", component: "text" },
     { label: "Background Color", name: "background", component: "color" },
   ],
   Image: [
@@ -42,7 +44,7 @@ export const blockNameInputComponentMapping: BlockNameInputComponentMapping = {
   Heading3: [{ label: "Align", name: "align", component: "text" }],
   List: [],
   Rows: [
-    { label: "Align", name: "align", component: "text" },
+    { label: "Spacing", name: "spacing", component: "text" },
     { label: "Background Color", name: "background", component: "color" },
   ],
 };

@@ -1,4 +1,4 @@
-import { CSSObject, Group, useMantineTheme } from "@mantine/core";
+import { Group } from "@mantine/core";
 import React from "react";
 import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
@@ -13,21 +13,24 @@ const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
 
   const currentBlock = block[blockId];
   const { children, props } = currentBlock;
-  const { background } = props;
+  // const { background } = props;
+  const { background, spacing, margin, padding = "10px" } = props;
 
   return (
-    <Group
-      direction="column"
-      spacing={0}
-      grow
-      p="md"
-      {...props}
-      sx={{ background: background as string, height: "100%" }}
+    <div
+      style={{
+        background: background as string,
+        display: "grid",
+        gridTemplateColumns: `repeat(${children.length}, minmax(0, 1fr))`,
+        gap: spacing as string,
+        margin: margin as string,
+        padding: padding as string,
+      }}
     >
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />
       ))}
-    </Group>
+    </div>
   );
 };
 
