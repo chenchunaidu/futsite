@@ -18,15 +18,15 @@ export const blockNameComponentMapping = {
   },
   Heading1: {
     component: Heading1,
-    props: { content: "Heading 1", order: 1 },
+    props: { content: "Heading 1" },
   },
   Heading2: {
     component: Heading2,
-    props: { content: "Heading 2", order: 2 },
+    props: { content: "Heading 2" },
   },
   Heading3: {
     component: Heading3,
-    props: { content: "Heading 3", order: 3 },
+    props: { content: "Heading 3" },
   },
   Image: {
     component: CustomImage,

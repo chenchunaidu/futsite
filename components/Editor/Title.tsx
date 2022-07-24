@@ -1,5 +1,4 @@
 import React from "react";
-import { Title, TitleOrder } from "@mantine/core";
 import { BlockComponentProps } from "../../types/editor.types";
 import { useRecoilState } from "recoil";
 import { editorStateAtom } from "../../atoms/editor.atom";
@@ -7,20 +6,23 @@ import useUpdateBlockProps from "../../hooks/useUpdateBlockProps";
 
 export interface CustomTitleProps {
   content?: string;
-  order?: TitleOrder;
 }
 
-export const CustomTitle: React.FC<BlockComponentProps> = ({ blockId }) => {
+export interface CustomTitleCompProps extends BlockComponentProps {
+  fontSize: string;
+}
+
+const CustomTitle: React.FC<CustomTitleCompProps> = ({ blockId, fontSize }) => {
   const [block] = useRecoilState(editorStateAtom);
   const [updateEditorProps] = useUpdateBlockProps();
-  const { props } = block[blockId];
-  const { content = "", order = 1 } = props as CustomTitleProps;
+  const currentBlock = block[blockId];
+  const { props } = currentBlock;
+  const { content, ...styles } = props as CustomTitleProps;
 
   return (
-    <Title
+    <div
       contentEditable="true"
       suppressContentEditableWarning={true}
-      order={order}
       onBlur={(e: React.FormEvent<HTMLDivElement>) =>
         updateEditorProps({
           blockId,
@@ -28,19 +30,20 @@ export const CustomTitle: React.FC<BlockComponentProps> = ({ blockId }) => {
           value: e?.currentTarget?.innerText,
         })
       }
+      style={{ ...styles, fontSize }}
     >
       {content}
-    </Title>
+    </div>
   );
 };
 
-export const Heading1: React.FC<BlockComponentProps> = ({ blockId }) => {
-  return <CustomTitle blockId={blockId} />;
-};
+export const Heading1: React.FC<BlockComponentProps> = (props) => (
+  <CustomTitle {...props} fontSize="36px" />
+);
 
-export const Heading2: React.FC<BlockComponentProps> = ({ blockId }) => {
-  return <CustomTitle blockId={blockId} />;
-};
-export const Heading3: React.FC<BlockComponentProps> = ({ blockId }) => {
-  return <CustomTitle blockId={blockId} />;
-};
+export const Heading2: React.FC<BlockComponentProps> = (props) => (
+  <CustomTitle {...props} fontSize="24px" />
+);
+export const Heading3: React.FC<BlockComponentProps> = (props) => (
+  <CustomTitle {...props} fontSize="20px" />
+);
