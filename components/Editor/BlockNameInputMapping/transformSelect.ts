@@ -10,7 +10,7 @@ export const transformOptions: SelectItem[] = [
 
 export const TransformSelect: PropInput = {
   label: "Transform",
-  name: "transform",
+  name: "textTransform",
   component: "select",
   options: transformOptions,
 };

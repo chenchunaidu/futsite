@@ -2,30 +2,46 @@ import { PropInput } from "../../../types/editor.types";
 
 export const fontWeightOptions = [
   {
-    label: "Lighter",
-    value: "lighter",
+    label: "Thin",
+    value: "100",
+  },
+  {
+    label: "Extra light",
+    value: "200",
+  },
+  {
+    label: "Light",
+    value: "300",
   },
   {
     label: "Normal",
-    value: "normal",
+    value: "400",
   },
   {
-    label: "Semi bold",
+    label: "Medium",
     value: "500",
   },
   {
-    label: "Bold",
-    value: "bold",
+    label: "Semi bold",
+    value: "600",
   },
   {
-    label: "Bolder",
-    value: "bolder",
+    label: "Bold",
+    value: "700",
+  },
+  {
+    label: "Extra bold",
+    value: "800",
+  },
+  {
+    label: "Black",
+    value: "900",
   },
 ];
 
 export const FontWeightSelect: PropInput = {
   label: "Font weight",
-  name: "weight",
+  name: "fontWeight",
   component: "select",
   options: fontWeightOptions,
 };

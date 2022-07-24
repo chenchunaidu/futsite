@@ -10,7 +10,7 @@ export const alignOptions: SelectItem[] = [
 
 export const AlignSelect: PropInput = {
   label: "Align",
-  name: "align",
+  name: "textAlign",
   component: "select",
   options: alignOptions,
 };

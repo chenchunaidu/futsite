@@ -14,10 +14,10 @@ const CustomText: React.FC<BlockComponentProps> = ({ blockId }) => {
   const [updateEditorProps] = useUpdateBlockProps();
   const currentBlock = block[blockId];
   const { props } = currentBlock;
-  const { content } = props as CustomTextProps;
+  const { content, ...styles } = props as CustomTextProps;
 
   return (
-    <Text
+    <div
       contentEditable="true"
       suppressContentEditableWarning={true}
       onBlur={(e: React.FormEvent<HTMLDivElement>) =>
@@ -27,10 +27,10 @@ const CustomText: React.FC<BlockComponentProps> = ({ blockId }) => {
           value: e?.currentTarget?.innerText,
         })
       }
-      {...props}
+      style={{ ...styles }}
     >
       {content}
-    </Text>
+    </div>
   );
 };
 
