@@ -19,6 +19,7 @@ const Column: React.FC<BlockComponentProps> = ({ blockId }) => {
     alignItems,
     justifyContent,
     flexGrow = 1,
+    ...styles
   } = props;
 
   return (
@@ -32,8 +33,8 @@ const Column: React.FC<BlockComponentProps> = ({ blockId }) => {
         flexGrow: flexGrow as number,
         justifyContent: justifyContent as string,
         alignItems: alignItems as string,
+        ...styles,
       }}
-      {...props}
     >
       {children.map((child) => (
         <BlockStateWrapper blockId={child} key={child} />

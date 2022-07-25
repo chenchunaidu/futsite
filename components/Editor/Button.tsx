@@ -12,7 +12,7 @@ const CustomButton: React.FC<BlockComponentProps> = ({ blockId }) => {
   const [block] = useRecoilState(editorStateAtom);
   const [updateEditorProps] = useUpdateBlockProps();
   const { props } = block[blockId];
-  const { label } = props as CustomButtonProps;
+  const { label, ...styles } = props as CustomButtonProps;
 
   const handleSpaceEnter = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.code !== "Space") {
@@ -23,7 +23,7 @@ const CustomButton: React.FC<BlockComponentProps> = ({ blockId }) => {
   };
 
   return (
-    <Button
+    <button
       contentEditable="true"
       suppressContentEditableWarning={true}
       onBlur={(e: React.FocusEvent<HTMLButtonElement>) =>
@@ -34,10 +34,10 @@ const CustomButton: React.FC<BlockComponentProps> = ({ blockId }) => {
         })
       }
       onKeyDown={handleSpaceEnter}
-      {...props}
+      style={{ ...styles }}
     >
       {label}
-    </Button>
+    </button>
   );
 };
 

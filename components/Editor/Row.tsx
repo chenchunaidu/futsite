@@ -14,7 +14,7 @@ const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
   const currentBlock = block[blockId];
   const { children, props } = currentBlock;
   // const { background } = props;
-  const { background, spacing, margin, padding = "10px" } = props;
+  const { background, spacing, margin, padding = "10px", ...styles } = props;
 
   return (
     <div
@@ -25,6 +25,7 @@ const Row: React.FC<BlockComponentProps> = ({ blockId }) => {
         gap: spacing as string,
         margin: margin as string,
         padding: padding as string,
+        ...styles,
       }}
     >
       {children.map((child) => (
